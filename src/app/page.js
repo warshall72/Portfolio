@@ -180,6 +180,63 @@ export default function HomePage() {
         </section>
       </FadeInSection>
 
+            {/* Achievements Section */}
+      <FadeInSection>
+        <section id="achievements" className="px-4 md:px-24 py-16">
+          <h2 className="text-3xl md:text-5xl font-bold text-center mb-8 md:mb-12">Achievements</h2>
+          <Swiper
+            spaceBetween={30}
+            slidesPerView={1}
+            loop={true}
+            autoplay={{ delay: 4000, disableOnInteraction: false }}
+            navigation={{
+              nextEl: '.achievement-swiper-next',
+              prevEl: '.achievement-swiper-prev',
+            }}
+            modules={[Navigation, Autoplay]}
+            className="w-full mx-auto relative"
+          >
+            {[
+              {
+                title: "Runners up of Codefort hackathon by IEEE",
+                desc: "Successfully secured the Runner-Up position among top participants by developing an innovative and secure authentication solution. The hackathon challenged us to deliver under time constraints, showcase technical expertise, and work effectively as a team.",
+                image: "codefort.png", // Replace with your image path
+              },
+              {
+                title: "Odisha Fast Hack 2025 winner",
+                desc: "My team, Team Anarchy, won the prestigious Agoric Fast Hack - 24 Hour Odisha Hackathon! We developed a decentralized health records system using Agoric Smart Contracts and blockchain technology.Our solution ensures security, transparency, and easy accessibility of health data. It bridges the gap between Web3 innovation and modern healthcare needs. A proud step forward in revolutionizing healthcare through decentralized technology. ",
+                image: "Agoric.png", 
+              },
+              {
+                title: "SIH Grand Finalist 2024",
+                desc: "Selected as a Grand Finalist in one of India's most prestigious hackathons, SIH 2024. Represented my team in building a real-world, scalable geo-fencing-based attendance system. The experience at NIT Srinagar was transformative—combining innovation, teamwork, and high-pressure problem solving.",
+                image: "SIH.png"
+              },
+            ].map((achievement, index) => (
+              <SwiperSlide key={index}>
+                <div className="bg-white/5 backdrop-blur-md rounded-2xl shadow-lg overflow-hidden">
+                  <div className="h-108 md:h-108 w-full overflow-hidden">
+                    <img 
+                      src={achievement.image} 
+                      alt={achievement.title}
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                  <div className="p-6 md:p-8 space-y-4">
+                    <h3 className="text-2xl font-semibold text-center">{achievement.title}</h3>
+                    <p className="text-gray-300 text-sm md:text-base text-center">{achievement.desc}</p>
+                  </div>
+                </div>
+              </SwiperSlide>
+            ))}
+            
+            {/* Custom navigation buttons */}
+            <div className="achievement-swiper-prev !text-white !left-0"></div>
+            <div className="achievement-swiper-next !text-white !right-0"></div>
+          </Swiper>
+        </section>
+      </FadeInSection>
+
       {/* Resume Button */}
       <FadeInSection>
         <section className="text-center px-4" id="resume">
